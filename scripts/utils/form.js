@@ -1,5 +1,6 @@
 const openModal = () => {
   document.querySelector(".modal_wrapper").classList.add("open");
+  document.querySelector(".modal_wrapper input").focus()
 };
 const closeModal = () => {
   document.querySelector(".modal_wrapper").classList.remove("open");
@@ -15,6 +16,13 @@ export const openCloseFormContact = () => {
   });
   closeBtn.addEventListener("click", () => {
     closeModal();
+  });
+  document.querySelector(".modal_wrapper").addEventListener('keyup', e => {
+    switch(e.key) {
+        case 'Escape':
+            closeModal();
+            break;
+    }
   });
 };
 
